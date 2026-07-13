@@ -6,6 +6,21 @@ type Props = {
 };
 
 export default function Footer({ brand }: Props) {
+  if (brand.name === "Halil Ünal") {
+    return (
+      <footer className="landing-footer border-t border-white/[0.08] bg-[#050710] text-slate-500">
+        <div className="landing-container flex flex-col gap-5 py-8 text-xs sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Halil Ünal</p>
+          <nav className="flex gap-6" aria-label="Alt navigasyon">
+            <a className="footer-link" href="#brandcore">BrandCore</a>
+            <a className="footer-link" href="#products">Ürünler</a>
+            <a className="footer-link" href="#">Yukarı dön</a>
+          </nav>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer className="border-t bg-white">
       <div className="mx-auto max-w-6xl px-6 py-10">

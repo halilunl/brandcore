@@ -33,7 +33,7 @@ export default function Header({ brand }: Props) {
         >
           {isHalilUnal && (
             <a href="#brandcore" className="site-nav-link focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400">
-              BrandCore
+              Ekosistem
             </a>
           )}
           <a href={isHalilUnal ? "#products" : "#projects"} className="site-nav-link focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400">

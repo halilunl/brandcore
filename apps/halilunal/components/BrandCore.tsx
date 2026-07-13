@@ -21,9 +21,9 @@ export default function BrandCore() {
             <span className="block text-slate-400">Birden fazla ürün.</span>
           </h2>
           <p className="section-copy mt-8 max-w-lg">
-            BrandCore, geliştirdiğim tüm ürünlerin ortak temelidir. Her ürün
-            farklı bir problemi çözer; ancak tamamı aynı tasarım anlayışı, aynı
-            teknoloji altyapısı ve aynı kalite yaklaşımıyla geliştirilir.
+            Geliştirdiğimiz tüm ürünler ortak bir temelden doğar. Her biri farklı
+            bir problemi çözer; tamamı aynı tasarım anlayışı, teknoloji altyapısı
+            ve kalite yaklaşımıyla geliştirilir.
           </p>
           <ul className="brandcore-principles mt-10" aria-label="BrandCore ortak ilkeleri">
             {principles.map((principle, index) => (
@@ -42,9 +42,9 @@ export default function BrandCore() {
             role="img"
             aria-labelledby="brandcore-map-title brandcore-map-description"
           >
-            <title id="brandcore-map-title">BrandCore ürün ekosistemi</title>
+            <title id="brandcore-map-title">UNAL LTD ürün ekosistemi</title>
             <desc id="brandcore-map-description">
-              BrandCore çekirdeğinden beş dijital ürüne uzanan bağlantılar.
+              Ortak çekirdekten beş dijital ürüne uzanan bağlantılar.
             </desc>
             <g className="brandcore-paths">
               <path d="M400 230 C315 230 278 82 168 82" />
@@ -62,7 +62,7 @@ export default function BrandCore() {
             <circle className="brandcore-core" cx="480" cy="230" r="68" />
             <circle className="brandcore-core-point" cx="480" cy="204" r="3" />
             <text className="brandcore-core-label" x="480" y="240" textAnchor="middle">
-              BrandCore
+              UNAL LTD
             </text>
             {products.map((product, index) => (
               <g key={product} className="brandcore-product">
@@ -74,8 +74,8 @@ export default function BrandCore() {
             ))}
           </svg>
           <figcaption id="brandcore-map-caption" className="sr-only">
-            BrandCore; ServiNOTE, MirChat, Bisahibi, LezzetHattı ve PanelAdd
-            ürünlerini ortak bir yaklaşımda birleştirir.
+            UNAL LTD; ServiNOTE, MirChat, Bisahibi, LezzetHattı ve PanelAdd
+            ürünlerini ortak bir ekosistemde birleştirir.
           </figcaption>
         </figure>
       </div>

@@ -6,6 +6,78 @@ type Props = {
   };
 };
 
+const ecosystemProducts = ["ServiNOTE", "MirChat", "Bisahibi", "LezzetHattı", "PanelAdd"];
+
+function EcosystemVisual() {
+  const desktopPaths = [
+    "M136 80 C260 80 270 240 430 240",
+    "M136 160 C270 160 292 240 430 240",
+    "M136 240 H430",
+    "M136 320 C270 320 292 240 430 240",
+    "M136 400 C260 400 270 240 430 240",
+  ];
+  const mobilePaths = [
+    "M70 52 C70 225 180 230 180 328",
+    "M180 92 V328",
+    "M290 132 C290 235 180 238 180 328",
+    "M98 186 C98 260 180 260 180 328",
+    "M262 224 C262 278 180 278 180 328",
+  ];
+  const mobilePositions = [
+    { x: 70, y: 52 },
+    { x: 180, y: 92 },
+    { x: 290, y: 132 },
+    { x: 98, y: 186 },
+    { x: 262, y: 224 },
+  ];
+
+  return (
+    <figure className="hero-ecosystem" aria-labelledby="hero-ecosystem-caption">
+      <svg className="hero-ecosystem-desktop" viewBox="0 0 620 480" role="img" aria-hidden="true">
+        {ecosystemProducts.map((product, index) => (
+          <g className="hero-ecosystem-item" key={product}>
+            <path d={desktopPaths[index]} />
+            <circle cx="136" cy={80 + index * 80} r="4" />
+            <text x="116" y={85 + index * 80} textAnchor="end">{product}</text>
+          </g>
+        ))}
+        <g className="hero-ecosystem-center">
+          <circle className="hero-ecosystem-halo" cx="472" cy="240" r="104" />
+          <circle className="hero-ecosystem-core" cx="472" cy="240" r="67" />
+          <circle className="hero-ecosystem-pulse" cx="472" cy="214" r="3" />
+          <text x="472" y="247" textAnchor="middle">UNAL LTD</text>
+        </g>
+      </svg>
+
+      <svg className="hero-ecosystem-mobile" viewBox="0 0 360 440" role="img" aria-hidden="true">
+        {ecosystemProducts.map((product, index) => (
+          <g className="hero-ecosystem-item" key={product}>
+            <path d={mobilePaths[index]} />
+            <circle cx={mobilePositions[index].x} cy={mobilePositions[index].y} r="3.5" />
+            <text
+              x={mobilePositions[index].x}
+              y={mobilePositions[index].y - 12}
+              textAnchor="middle"
+            >
+              {product}
+            </text>
+          </g>
+        ))}
+        <g className="hero-ecosystem-center">
+          <circle className="hero-ecosystem-halo" cx="180" cy="344" r="82" />
+          <circle className="hero-ecosystem-core" cx="180" cy="344" r="58" />
+          <circle className="hero-ecosystem-pulse" cx="180" cy="321" r="3" />
+          <text x="180" y="350" textAnchor="middle">UNAL LTD</text>
+        </g>
+      </svg>
+      <figcaption id="hero-ecosystem-caption" className="sr-only">
+        ServiNOTE, MirChat, Bisahibi, LezzetHattı ve PanelAdd ürünlerini UNAL LTD
+        çekirdeğine bağlayan ürün ekosistemi.
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function Hero({ brand }: Props) {
   if (brand.name !== "Halil Ünal") {
     return (
@@ -33,8 +105,8 @@ export default function Hero({ brand }: Props) {
       <div className="hero-grid absolute inset-0 -z-20" aria-hidden="true" />
       <div className="hero-glow absolute -z-10" aria-hidden="true" />
 
-      <div className="mx-auto grid min-w-0 w-full max-w-[1440px] grid-cols-[minmax(0,1fr)] items-start px-5 pb-14 pt-24 sm:items-center sm:px-8 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.44fr)] lg:px-14 lg:py-24 xl:px-20 xl:py-28">
-        <div className="relative z-10 min-w-0 max-w-[850px]">
+      <div className="hero-layout mx-auto grid min-w-0 w-full max-w-[1440px] grid-cols-[minmax(0,1fr)] items-start px-5 pb-14 pt-24 sm:items-center sm:px-8 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.44fr)] lg:px-14 lg:py-24 xl:px-20 xl:py-28">
+        <div className="hero-layout-copy relative z-10 min-w-0 max-w-[850px]">
           <p className="hero-enter hero-enter-first mb-8 flex max-w-full items-center gap-3 text-[0.6rem] font-semibold uppercase leading-5 tracking-[0.17em] text-blue-200/65 sm:mb-10 sm:text-[0.68rem] sm:tracking-[0.24em]">
             <span className="h-px w-7 bg-blue-300/60" aria-hidden="true" />
             <span className="min-w-0">Dijital ürünler · Markalar · Platformlar</span>
@@ -44,14 +116,14 @@ export default function Hero({ brand }: Props) {
             id="hero-title"
             className="hero-enter hero-enter-second max-w-[12ch] text-[2.65rem] font-semibold leading-[0.96] tracking-[-0.058em] sm:text-[clamp(3.35rem,8.15vw,7.15rem)] sm:leading-[0.94] sm:tracking-[-0.062em]"
           >
-            <span className="hero-title-line">Yazılım</span>
-            <span className="hero-title-line hero-title-accent">geliştiriyoruz.</span>
+            <span className="hero-title-line">Projelerimiz.</span>
+            <span className="hero-title-line hero-title-support">Gerçek problemlere odaklanan</span>
+            <span className="hero-title-line hero-title-support hero-title-accent">dijital ürünler.</span>
           </h1>
 
           <p className="hero-enter hero-enter-third mt-8 max-w-[590px] text-[0.98rem] leading-7 text-slate-300/75 sm:mt-10 sm:text-lg sm:leading-8 lg:text-[1.18rem]">
-            Farklı sektörlerin gerçek ihtiyaçlarına odaklanan dijital ürünler
-            geliştiriyoruz. Her ürün aynı tasarım anlayışını, aynı kalite
-            yaklaşımını ve aynı teknoloji temelini paylaşır.
+            Her ürün farklı bir ihtiyacı çözer. Tamamı aynı tasarım anlayışı,
+            aynı mühendislik disiplini ve ortak kalite yaklaşımıyla geliştirilir.
           </p>
 
           <div className="hero-enter hero-enter-fourth mt-10 flex flex-col items-stretch gap-3 sm:mt-12 sm:flex-row sm:items-center sm:gap-4">
@@ -73,17 +145,7 @@ export default function Hero({ brand }: Props) {
           </div>
         </div>
 
-        <div className="hero-signal-wrap pointer-events-none absolute bottom-[-9rem] right-[-9rem] -z-0 h-[25rem] w-[25rem] opacity-65 sm:bottom-[-12rem] sm:right-[-8rem] sm:h-[34rem] sm:w-[34rem] lg:relative lg:bottom-auto lg:right-auto lg:ml-auto lg:h-[29rem] lg:w-[29rem] lg:opacity-100 xl:h-[35rem] xl:w-[35rem]" aria-hidden="true">
-          <div className="hero-orbit-arc absolute inset-[1px] rounded-full" />
-          <div className="hero-signal absolute inset-0 rounded-full border border-blue-300/15">
-            <span className="hero-signal-dot absolute" />
-          </div>
-          <div className="hero-signal-inner absolute inset-[18%] rounded-full border border-violet-300/10">
-            <span className="hero-signal-particle absolute" />
-          </div>
-          <div className="hero-core absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full sm:h-36 sm:w-36" />
-          <span className="hero-core-point absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-50" />
-        </div>
+        <EcosystemVisual />
       </div>
     </section>
   );

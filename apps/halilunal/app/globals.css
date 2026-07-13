@@ -104,11 +104,112 @@ html {
   display: block;
 }
 
+.hero-title-support {
+  margin-top: 0.14em;
+  font-size: 0.56em;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
 .hero-title-accent {
   color: transparent;
   background: linear-gradient(105deg, #f5f7fc 12%, #bed1f7 55%, #aaa8eb 96%);
   background-clip: text;
   -webkit-background-clip: text;
+}
+
+.hero-ecosystem {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 620px;
+  margin-left: auto;
+}
+
+.hero-ecosystem svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.hero-ecosystem-mobile { display: none !important; }
+
+.hero-ecosystem-item {
+  cursor: default;
+}
+
+.hero-ecosystem-item path {
+  fill: none;
+  stroke: rgba(148, 163, 184, 0.16);
+  stroke-width: 1;
+  transition: stroke 550ms ease, filter 550ms ease;
+}
+
+.hero-ecosystem-item circle {
+  fill: rgba(147, 197, 253, 0.48);
+  transition: fill 450ms ease, filter 450ms ease;
+}
+
+.hero-ecosystem-item text {
+  fill: rgba(203, 213, 225, 0.55);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: fill 450ms ease, filter 450ms ease;
+}
+
+.hero-ecosystem-item:hover path {
+  stroke: rgba(147, 197, 253, 0.72);
+  filter: drop-shadow(0 0 5px rgba(96, 165, 250, 0.35));
+}
+
+.hero-ecosystem-item:hover circle {
+  fill: #dbeafe;
+  filter: drop-shadow(0 0 7px rgba(96, 165, 250, 0.75));
+}
+
+.hero-ecosystem-item:hover text {
+  fill: #f1f5f9;
+  filter: drop-shadow(0 0 8px rgba(147, 197, 253, 0.18));
+}
+
+.hero-ecosystem-halo {
+  fill: none;
+  stroke: rgba(129, 140, 248, 0.12);
+  stroke-width: 1;
+  stroke-dasharray: 2 8;
+  transition: stroke 600ms ease, filter 600ms ease;
+}
+
+.hero-ecosystem-core {
+  fill: rgba(9, 13, 29, 0.94);
+  stroke: rgba(147, 197, 253, 0.28);
+  stroke-width: 1;
+  filter: drop-shadow(0 0 28px rgba(59, 91, 180, 0.16));
+  transition: stroke 600ms ease, filter 600ms ease;
+}
+
+.hero-ecosystem-pulse {
+  fill: #dbeafe;
+  filter: drop-shadow(0 0 6px rgba(147, 197, 253, 0.75));
+}
+
+.hero-ecosystem-center text {
+  fill: rgba(226, 232, 240, 0.86);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.hero-ecosystem svg:has(.hero-ecosystem-item:hover) .hero-ecosystem-halo {
+  stroke: rgba(147, 197, 253, 0.28);
+  filter: drop-shadow(0 0 9px rgba(96, 165, 250, 0.2));
+}
+
+.hero-ecosystem svg:has(.hero-ecosystem-item:hover) .hero-ecosystem-core {
+  stroke: rgba(147, 197, 253, 0.52);
+  filter: drop-shadow(0 0 38px rgba(59, 130, 246, 0.28));
 }
 
 .hero-core {
@@ -1008,6 +1109,20 @@ html {
 }
 
 @media (max-width: 768px) {
+  .hero-layout {
+    width: 100vw;
+    max-width: 100vw;
+    grid-template-columns: minmax(0, 1fr);
+    overflow: hidden;
+  }
+
+  .hero-layout-copy,
+  .hero-ecosystem {
+    width: calc(100vw - 2.5rem);
+    min-width: 0;
+    max-width: calc(100vw - 2.5rem);
+  }
+
   #hero-title {
     max-width: 12ch;
     font-size: clamp(3.15rem, 10vw, 5rem);
@@ -1019,6 +1134,27 @@ html {
     font-size: clamp(1.05rem, 2.4vw, 1.2rem);
     line-height: 1.75;
   }
+
+  .hero-title-support {
+    max-width: 18ch;
+    font-size: 0.58em;
+    line-height: 1.16;
+  }
+
+  .hero-ecosystem {
+    max-width: 390px;
+    margin: 3rem auto 0;
+  }
+
+  .hero-ecosystem-desktop { display: none !important; }
+  .hero-ecosystem-mobile { display: block !important; }
+  .hero-ecosystem-mobile .hero-ecosystem-item:first-child path {
+    stroke: rgba(147, 197, 253, 0.6);
+    filter: drop-shadow(0 0 4px rgba(96, 165, 250, 0.25));
+  }
+  .hero-ecosystem-mobile .hero-ecosystem-item:first-child circle { fill: #dbeafe; filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.6)); }
+  .hero-ecosystem-mobile .hero-ecosystem-item:first-child text { fill: #f1f5f9; }
+  .hero-ecosystem-mobile .hero-ecosystem-core { filter: drop-shadow(0 0 32px rgba(59, 130, 246, 0.24)); }
 
   .brandcore-section .section-title {
     max-width: 11ch;
@@ -1197,6 +1333,12 @@ html {
   .product-visual-signal,
   .servinote-interface,
   .product-ui { animation: none; }
+
+  .hero-ecosystem-item path,
+  .hero-ecosystem-item circle,
+  .hero-ecosystem-item text,
+  .hero-ecosystem-halo,
+  .hero-ecosystem-core { transition-duration: 0.01ms; }
 
   .hero-button,
   .hero-button-arrow,
